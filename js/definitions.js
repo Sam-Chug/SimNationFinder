@@ -4,8 +4,8 @@ const VERSION_STR = "v0.2.3c";
 //https://simnation.ddns.net:9000/userapi/avatars/2009
 //https://api.freeso.org/userapi/city/1/lots/online
 
-const SIM_ONLINE_URL = "https://simnation.ddns.net:9000/userapi/avatars/online";
-const LOTS_ONLINE_URL = "https://simnation.ddns.net:9000/userapi/city/1/lots/online";
+const SIM_ONLINE_URL = "http://simnation.ddns.net:9000/userapi/avatars/online";
+const LOTS_ONLINE_URL = "http://simnation.ddns.net:9000/userapi/city/1/lots/online";
 
 // TODO: Most of these can be replaced with json's with keys
 
@@ -177,8 +177,8 @@ const SETTINGS_KEY = "simfinder-settings";
 //#endregion
 
 //#region Market Watch Constants
-const SMO_AVERAGE_BASE_PAYOUT = 31.7;
-const SMO_AVERAGE_COMPLETION_TIME = 242.25;
+const SMO_AVERAGE_BASE_PAYOUT = 317;
+const SMO_AVERAGE_COMPLETION_TIME = 222.25;
 const JOB_AVERAGE_PAY_SECOND = [0, 2, 5.2, 0, 5.9, 5.9];
 
 // Job start/end times
