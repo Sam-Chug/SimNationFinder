@@ -167,8 +167,8 @@ const CONFETTI_SPAWN_COUNT = 128;
 const MAX_STYLES = 10; // Maximum styles to loop through
 
 //TODO: change to "simfinder-id-list"
-const STORAGE_BOOKMARK_KEY = "idList";
-const STORAGE_BOOKMARK_KEY_OLD = "idList";
+const STORAGE_BOOKMARK_KEY = "SNidList";
+const STORAGE_BOOKMARK_KEY_OLD = "SNidList";
 const STORAGE_BOOKMARK_KEY_SN = "SNidList";
 
 const STORAGE_BOOKMARK_CACHE_KEY = "sf-idList-cache";
