@@ -975,7 +975,7 @@ guiUtils = function() {
 
         // Grab lot thumbnail from API
         let cacheBust = Math.floor(Math.random() * 10000000);
-        let imageSource = `https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/city/1/${selectedLotLong.location}.png?cachebust:${cacheBust}`;
+        let imageSource = `https://images.weserv.nl/?url=simnationserver.com:9000/userapi/city/1/${selectedLotLong.location}.png?cachebust:${cacheBust}`;
         console.log("%cFetching Lot Image:\n\n", "color: black; background-color: lightgreen;", imageSource);
 
         // Set image
