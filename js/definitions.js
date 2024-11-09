@@ -1,11 +1,11 @@
 //#region Strings
 const VERSION_STR = "v0.2.3c";
 
-//http://simnation.ddns.net:9000/userapi/avatars/2009
+//https://simnation.ddns.net:9000/userapi/avatars/2009
 //https://api.freeso.org/userapi/city/1/lots/online
 
-const SIM_ONLINE_URL = "http://simnation.ddns.net:9000/userapi/avatars/online";
-const LOTS_ONLINE_URL = "http://simnation.ddns.net:9000/userapi/city/1/lots/online";
+const SIM_ONLINE_URL = "https://simnation.ddns.net:9000/userapi/avatars/online";
+const LOTS_ONLINE_URL = "https://simnation.ddns.net:9000/userapi/city/1/lots/online";
 
 // TODO: Most of these can be replaced with json's with keys
 
