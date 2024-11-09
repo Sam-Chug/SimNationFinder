@@ -1,5 +1,5 @@
 //#region Strings
-const VERSION_STR = "v0.2.3i";
+const VERSION_STR = "v0.2.3j";
 
 //http://simnationserver.com:9000/userapi/avatars/2009
 //http://api.freeso.org/userapi/city/1/lots/online
@@ -282,10 +282,10 @@ const CONFETTI_DATA = {
 const CUSTOM_STYLE_REAGAN = "Reagan Lambo";
 
 const CUSTOM_STYLE_SIMHEADS = {
-    male: "./images/sim-faces/simface-m.png?v0.2.3i",
-    female: "./images/sim-faces/simface-f.png?v0.2.3i",
-    reagan: "./images/sim-faces/simface-rea.png?v0.2.3i",
-    bear: "./images/sim-faces/simface-b.png?v0.2.3i"
+    male: "./images/sim-faces/simface-m.png?v0.2.3j",
+    female: "./images/sim-faces/simface-f.png?v0.2.3j",
+    reagan: "./images/sim-faces/simface-rea.png?v0.2.3j",
+    bear: "./images/sim-faces/simface-b.png?v0.2.3j"
 };
 const CUSTOM_STYLE_BLOCK = {
     bp: {
