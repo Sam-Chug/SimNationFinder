@@ -1,11 +1,11 @@
 //#region Strings
-const VERSION_STR = "v0.2.3d";
+const VERSION_STR = "v0.2.3e";
 
 //https://simnation.ddns.net:9000/userapi/avatars/2009
 //https://api.freeso.org/userapi/city/1/lots/online
 
-const SIM_ONLINE_URL = "http://simnation.ddns.net:9000/userapi/avatars/online";
-const LOTS_ONLINE_URL = "http://simnation.ddns.net:9000/userapi/city/1/lots/online";
+const SIM_ONLINE_URL = "https://simnation.ddns.net:9000/userapi/avatars/online";
+const LOTS_ONLINE_URL = "https://simnation.ddns.net:9000/userapi/city/1/lots/online";
 
 // TODO: Most of these can be replaced with json's with keys
 
@@ -282,10 +282,10 @@ const CONFETTI_DATA = {
 const CUSTOM_STYLE_REAGAN = "Reagan Lambo";
 
 const CUSTOM_STYLE_SIMHEADS = {
-    male: "./images/sim-faces/simface-m.png?v0.2.3d",
-    female: "./images/sim-faces/simface-f.png?v0.2.3d",
-    reagan: "./images/sim-faces/simface-rea.png?v0.2.3d",
-    bear: "./images/sim-faces/simface-b.png?v0.2.3d"
+    male: "./images/sim-faces/simface-m.png?v0.2.3e",
+    female: "./images/sim-faces/simface-f.png?v0.2.3e",
+    reagan: "./images/sim-faces/simface-rea.png?v0.2.3e",
+    bear: "./images/sim-faces/simface-b.png?v0.2.3e"
 };
 const CUSTOM_STYLE_BLOCK = {
     bp: {
