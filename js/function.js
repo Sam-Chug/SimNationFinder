@@ -1965,7 +1965,7 @@ sidebarUtils = function() {
         let gitJson = await apiUtils.returnGitCommitJson();
         let date = gitJson.commit.commit.author.date.slice(0, 10);
 
-        let infoText = `Sim Finder\n${VERSION_STR}\n\nLast Update:\n${date}`;
+        let infoText = `SimNation Finder\n${VERSION_STR}\n\nLast Update:\n${date}`;
         SIDEBAR_INFO.textContent = infoText;
     }
 
@@ -2019,7 +2019,7 @@ apiUtils = function() {
     //#region API Fetching
     async function returnGitCommitJson() {
 
-        const apiLink = "https://web-production-3227.up.railway.app/http://api.github.com/repos/sam-chug/sim-finder/branches/master";
+        const apiLink = "https://web-production-3227.up.railway.app/http://api.github.com/repos/sam-chug/simnationfinder/branches/master";
 
         let obj;
         const res = await fetch(apiLink);
