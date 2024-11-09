@@ -1832,7 +1832,7 @@ searchUtils = function() {
         if (!simUtils.checkIfLotInLongCache(lotName)) {
 
             // If lot not cached, fetch from API
-            lotLong = await apiUtils.getAPIData("https://web-production-3227.up.railway.app/://simnationserver.com:9000/userapi/city/1/lots/name/" + lotName.replace(" ", "%20"));
+            lotLong = await apiUtils.getAPIData("https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/city/1/lots/name/" + lotName.replace(" ", "%20"));
 
             // Alert if lot doesn't exist
             if ("error" in lotLong) {
