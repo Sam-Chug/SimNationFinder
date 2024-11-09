@@ -1,8 +1,11 @@
 //#region Strings
 const VERSION_STR = "v0.2.3c";
 
-const SIM_ONLINE_URL = "https://api.freeso.org/userapi/avatars/online";
-const LOTS_ONLINE_URL = "https://api.freeso.org/userapi/city/1/lots/online";
+//http://simnation.ddns.net:9000/userapi/avatars/2009
+//https://api.freeso.org/userapi/city/1/lots/online
+
+const SIM_ONLINE_URL = "http://simnation.ddns.net:9000/userapi/avatars/online";
+const LOTS_ONLINE_URL = "http://simnation.ddns.net:9000/userapi/city/1/lots/online";
 
 // TODO: Most of these can be replaced with json's with keys
 
@@ -166,6 +169,7 @@ const MAX_STYLES = 10; // Maximum styles to loop through
 //TODO: change to "simfinder-id-list"
 const STORAGE_BOOKMARK_KEY = "idList";
 const STORAGE_BOOKMARK_KEY_OLD = "idList";
+const STORAGE_BOOKMARK_KEY_SN = "SNidList";
 
 const STORAGE_BOOKMARK_CACHE_KEY = "sf-idList-cache";
 
@@ -275,7 +279,7 @@ const CONFETTI_DATA = {
     }
 }
 
-const CUSTOM_STYLE_REAGAN = "Reaganomics Lamborghini";
+const CUSTOM_STYLE_REAGAN = "Reagan Lambo";
 
 const CUSTOM_STYLE_SIMHEADS = {
     male: "./images/sim-faces/simface-m.png?v0.2.3c",

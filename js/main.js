@@ -3,7 +3,7 @@ const simDataHolder = new SimData();
 document.addEventListener("DOMContentLoaded", async e => {
 
     console.log(`%c Sim Finder ${VERSION_STR} `, "color: yellow; background-color: purple; font-size: 1.9em;");
-    console.log(`%c A Website By Reaganomics Lamborghini `, "color: yellow; background-color: purple;");
+    console.log(`%c A Website By Reagan Lambo `, "color: yellow; background-color: purple;");
 
     simFinderMain.start();
 });
@@ -49,7 +49,7 @@ simFinderMain = function() {
         simLongList.avatars.sort(({avatar_id:a}, {avatar_id:b}) => a - b);
 
         // Get bookmarks
-        let bookmarkList = await apiUtils.getAPIData(apiUtils.buildLongSimLinkFromID(storageUtils.returnLocalStorage(STORAGE_BOOKMARK_KEY_OLD).simID));
+        let bookmarkList = await apiUtils.getAPIData(apiUtils.buildLongSimLinkFromID(storageUtils.returnLocalStorage(STORAGE_BOOKMARK_KEY_SN).simID));
 
         // Put into data holder
         simDataHolder.simShortList = simShortList;

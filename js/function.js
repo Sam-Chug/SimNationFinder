@@ -166,6 +166,9 @@ simUtils = function() {
     // Return short sim from sims currently online, from avatar id
     function returnShortSimFromLong(longSim) {
 
+        // for if it breaks
+        //console.log(simDataHolder.simShortList.avatars, longSim);
+
         // Null returns error object
         for (i = 0; i < simDataHolder.simShortList.avatars.length; i++) {
 
@@ -793,7 +796,7 @@ guiUtils = function() {
                 if (!simUtils.checkIfSimInLongCache(simName)) {
 
                     // If sim not in long cache, fetch from API and add to cache
-                    selectedSimLong = await apiUtils.getAPIData("https://api.freeso.org/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
+                    selectedSimLong = await apiUtils.getAPIData("http://simnation.ddns.net:9000/city/1/avatars/name/" + simName.replace(" ", "%20"));
                     simDataHolder.offlineLongSimList.push(selectedSimLong);
                 }
                 else {
@@ -972,7 +975,7 @@ guiUtils = function() {
 
         // Grab lot thumbnail from API
         let cacheBust = Math.floor(Math.random() * 10000000);
-        let imageSource = `https://api.freeso.org/userapi/city/1/${selectedLotLong.location}.png?cachebust:${cacheBust}`;
+        let imageSource = `http://simnation.ddns.net:9000/userapi/city/1/${selectedLotLong.location}.png?cachebust:${cacheBust}`;
         console.log("%cFetching Lot Image:\n\n", "color: black; background-color: lightgreen;", imageSource);
 
         // Set image
@@ -1177,12 +1180,12 @@ guiUtils = function() {
         if (isTownHall) {
 
             // Get townhall object
-            townhallObj = await apiUtils.getAPIData(`https://api.freeso.org/userapi/neighborhoods/${selectedLot.neighborhood_id}`);
+            townhallObj = await apiUtils.getAPIData(`http://simnation.ddns.net:9000/userapi/neighborhoods/${selectedLot.neighborhood_id}`);
 
             // Get mayor
             if (townhallObj.mayor_id != null) {
 
-                let avatarLong = await apiUtils.getAPIData(`https://api.freeso.org/userapi/avatars?ids=${townhallObj.mayor_id}`);
+                let avatarLong = await apiUtils.getAPIData(`http://simnation.ddns.net:9000/userapi/avatars?ids=${townhallObj.mayor_id}`);
                 mayor = avatarLong.avatars[0];
             }
             else mayor = {
@@ -1791,7 +1794,7 @@ searchUtils = function() {
         if (!simUtils.checkIfSimInLongCache(simName)) {
 
             // If sim not cached, fetch from API
-            simLong = await apiUtils.getAPIData("https://api.freeso.org/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
+            simLong = await apiUtils.getAPIData("http://simnation.ddns.net:9000/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
 
             // Alert if sim doesn't exist
             if ("error" in simLong) {
@@ -1829,7 +1832,7 @@ searchUtils = function() {
         if (!simUtils.checkIfLotInLongCache(lotName)) {
 
             // If lot not cached, fetch from API
-            lotLong = await apiUtils.getAPIData("https://api.freeso.org/userapi/city/1/lots/name/" + lotName.replace(" ", "%20"));
+            lotLong = await apiUtils.getAPIData("http://simnation.ddns.net:9000/userapi/city/1/lots/name/" + lotName.replace(" ", "%20"));
 
             // Alert if lot doesn't exist
             if ("error" in lotLong) {
@@ -2097,7 +2100,7 @@ apiUtils = function() {
     // Id list to sim object (for bookmark id list)
     function buildLongSimLinkFromID(idList) {
 
-        let simIdString = "https://api.freeso.org/userapi/avatars?ids=";
+        let simIdString = "http://simnation.ddns.net:9000/userapi/avatars?ids=";
         for (i = 0; i < idList.length; i++) {
         
             simIdString += idList[i] + ",";
@@ -2108,7 +2111,7 @@ apiUtils = function() {
 
     function buildLongSimLink(simList) {
 
-        let simIdString = "https://api.freeso.org/userapi/avatars?ids=";
+        let simIdString = "http://simnation.ddns.net:9000/userapi/avatars?ids=";
         for (i = 0; i < simList.avatars.length; i++) {
     
             simIdString += simList.avatars[i].avatar_id + ",";
@@ -2120,7 +2123,7 @@ apiUtils = function() {
 
     function buildLongLotLink(lotList) {
 
-        let lotIDString = "https://api.freeso.org/userapi/lots?ids=";
+        let lotIDString = "http://simnation.ddns.net:9000/userapi/lots?ids=";
         for (i = 0; i < lotList.lots.length; i++) {
     
             lotIDString += lotList.lots[i].lot_id + ",";
@@ -2133,7 +2136,7 @@ apiUtils = function() {
     // Builds api link from lot's roommates
     function buildRoommateLink(longLot) {
 
-        let roommateIDString = "https://api.freeso.org/userapi/avatars?ids=";
+        let roommateIDString = "http://simnation.ddns.net:9000/userapi/avatars?ids=";
         for (i = 0; i < longLot.roommates.length; i++) {
 
             roommateIDString += longLot.roommates[i] + ",";
@@ -2201,7 +2204,7 @@ storageUtils = function() {
         localStorage.removeItem(storageKey);
 
         // Set storage to have one sim ID
-        let initStorage = { simID: [194687] };
+        let initStorage = { simID: [128] };
         localStorage.setItem(storageKey, JSON.stringify(initStorage));
     }
 
