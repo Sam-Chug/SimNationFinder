@@ -278,7 +278,7 @@ simUtils = function() {
                 simDataHolder.simShortList.avatars.sort((a, b) => a.name.localeCompare(b.name));
                 simDataHolder.simLongList.avatars.sort((a, b) => a.name.localeCompare(b.name));
                 
-                GUI_SORT_SIM_NAMES.style.background = `url(./images/buttons/name-sort-selected.png?v0.2.3e)`;
+                GUI_SORT_SIM_NAMES.style.background = `url(./images/buttons/name-sort-selected.png?v0.2.3f)`;
                 simDataHolder.simSort = "name";
             }
             else if (simDataHolder.simSort == "name") {
@@ -286,7 +286,7 @@ simUtils = function() {
                 simDataHolder.simShortList.avatars.sort(({avatar_id:a}, {avatar_id:b}) => a - b);
                 simDataHolder.simLongList.avatars.sort(({avatar_id:a}, {avatar_id:b}) => a - b);
 
-                GUI_SORT_SIM_NAMES.style.background = `url(./images/buttons/name-sort.png?v0.2.3e)`;
+                GUI_SORT_SIM_NAMES.style.background = `url(./images/buttons/name-sort.png?v0.2.3f)`;
                 simDataHolder.simSort = "age";
             }
             let simFilter = (simDataHolder.simFilter == "REMOVE") ? "REMOVE" : SIM_FILTER_KEYS[simDataHolder.simFilter];
@@ -300,7 +300,7 @@ simUtils = function() {
                 simDataHolder.lotShortList.lots.sort((a, b) => a.name.localeCompare(b.name));
                 simDataHolder.lotLongList.lots.sort((a, b) => a.name.localeCompare(b.name));
 
-                GUI_SORT_LOT_NAMES.style.background = `url(./images/buttons/name-sort-selected.png?v0.2.3e)`;
+                GUI_SORT_LOT_NAMES.style.background = `url(./images/buttons/name-sort-selected.png?v0.2.3f)`;
                 simDataHolder.lotSort = "name";
             }
             else if (simDataHolder.lotSort == "name") {
@@ -308,7 +308,7 @@ simUtils = function() {
                 simDataHolder.lotLongList.lots.sort(({avatars_in_lot:a}, {avatars_in_lot:b}) => b - a);
                 simDataHolder.lotShortList.lots.sort(({avatars_in_lot:a}, {avatars_in_lot:b}) => b - a);
 
-                GUI_SORT_LOT_NAMES.style.background = `url(./images/buttons/name-sort.png?v0.2.3e)`;
+                GUI_SORT_LOT_NAMES.style.background = `url(./images/buttons/name-sort.png?v0.2.3f)`;
                 simDataHolder.lotSort = "pop";
             }
             filterUtils.writeFilterToTable("lot", simDataHolder.lotFilter);
@@ -796,7 +796,7 @@ guiUtils = function() {
                 if (!simUtils.checkIfSimInLongCache(simName)) {
 
                     // If sim not in long cache, fetch from API and add to cache
-                    selectedSimLong = await apiUtils.getAPIData("https://simnation.ddns.net:9000/city/1/avatars/name/" + simName.replace(" ", "%20"));
+                    selectedSimLong = await apiUtils.getAPIData("https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/city/1/avatars/name/" + simName.replace(" ", "%20"));
                     simDataHolder.offlineLongSimList.push(selectedSimLong);
                 }
                 else {
@@ -975,7 +975,7 @@ guiUtils = function() {
 
         // Grab lot thumbnail from API
         let cacheBust = Math.floor(Math.random() * 10000000);
-        let imageSource = `https://simnation.ddns.net:9000/userapi/city/1/${selectedLotLong.location}.png?cachebust:${cacheBust}`;
+        let imageSource = `https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/city/1/${selectedLotLong.location}.png?cachebust:${cacheBust}`;
         console.log("%cFetching Lot Image:\n\n", "color: black; background-color: lightgreen;", imageSource);
 
         // Set image
@@ -1010,7 +1010,7 @@ guiUtils = function() {
     function writeAbsentLotThumbnail(existence, selectedSimLong) {
 
         // Set lot image to unknown
-        GUI_LOT_THUMBNAIL.src = "./images/unknown.png?v0.2.3e";
+        GUI_LOT_THUMBNAIL.src = "./images/unknown.png?v0.2.3f";
         eggUtils.resetLotThumbnailStyles();
 
         // Get lot description and label
@@ -1180,12 +1180,12 @@ guiUtils = function() {
         if (isTownHall) {
 
             // Get townhall object
-            townhallObj = await apiUtils.getAPIData(`https://simnation.ddns.net:9000/userapi/neighborhoods/${selectedLot.neighborhood_id}`);
+            townhallObj = await apiUtils.getAPIData(`https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/neighborhoods/${selectedLot.neighborhood_id}`);
 
             // Get mayor
             if (townhallObj.mayor_id != null) {
 
-                let avatarLong = await apiUtils.getAPIData(`https://simnation.ddns.net:9000/userapi/avatars?ids=${townhallObj.mayor_id}`);
+                let avatarLong = await apiUtils.getAPIData(`https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/avatars?ids=${townhallObj.mayor_id}`);
                 mayor = avatarLong.avatars[0];
             }
             else mayor = {
@@ -1616,7 +1616,7 @@ filterUtils = function() {
     
             var x = (i % 4) * 71;
             var y = Math.floor(i / 4) * 71;
-            button.style.background = "url(./images/filter-spritesheets/lot-filter.png?v0.2.3e) " + -x + "px " + -y + "px";
+            button.style.background = "url(./images/filter-spritesheets/lot-filter.png?v0.2.3f) " + -x + "px " + -y + "px";
     
             addFilterClasses(button, "lot");
             lotFilterArray.append(button);
@@ -1627,7 +1627,7 @@ filterUtils = function() {
     
             var x = (i % 4) * 71;
             var y = Math.floor(i / 4) * 71;
-            button.style.background = "url(./images/filter-spritesheets/sim-filter.png?v0.2.3e) " + -x + "px " + -y + "px";
+            button.style.background = "url(./images/filter-spritesheets/sim-filter.png?v0.2.3f) " + -x + "px " + -y + "px";
     
             addFilterClasses(button, "sim");
             simFilterArray.append(button);
@@ -1679,11 +1679,11 @@ filterUtils = function() {
     
             if (action == "in") {
             
-                button.style.background = "url(./images/filter-spritesheets/lot-filter-hover.png?v0.2.3e) " + -x + "px " + -y + "px";
+                button.style.background = "url(./images/filter-spritesheets/lot-filter-hover.png?v0.2.3f) " + -x + "px " + -y + "px";
             }
             else if (action == "out") {
     
-                button.style.background = "url(./images/filter-spritesheets/lot-filter.png?v0.2.3e) " + -x + "px " + -y + "px";
+                button.style.background = "url(./images/filter-spritesheets/lot-filter.png?v0.2.3f) " + -x + "px " + -y + "px";
             }
         }
         else if (type == "sim") {
@@ -1692,11 +1692,11 @@ filterUtils = function() {
     
             if (action == "in") {
             
-                button.style.background = "url(./images/filter-spritesheets/sim-filter-hover.png?v0.2.3e) " + -x + "px " + -y + "px";
+                button.style.background = "url(./images/filter-spritesheets/sim-filter-hover.png?v0.2.3f) " + -x + "px " + -y + "px";
             }
             else if (action == "out") {
     
-                button.style.background = "url(./images/filter-spritesheets/sim-filter.png?v0.2.3e) " + -x + "px " + -y + "px";
+                button.style.background = "url(./images/filter-spritesheets/sim-filter.png?v0.2.3f) " + -x + "px " + -y + "px";
             }
         }
     }
@@ -1717,7 +1717,7 @@ filterUtils = function() {
                 button.classList.remove("lot-filter-active");
                 var x = (count % 4) * 71;
                 var y = Math.floor(count / 4) * 71;
-                button.style.background = "url(./images/filter-spritesheets/lot-filter.png?v0.2.3e) " + -x + "px " + -y + "px";
+                button.style.background = "url(./images/filter-spritesheets/lot-filter.png?v0.2.3f) " + -x + "px " + -y + "px";
         
                 count++;
             }
@@ -1730,7 +1730,7 @@ filterUtils = function() {
             else {
                 var x = (index % 4) * 71;
                 var y = Math.floor(index / 4) * 71;
-                button.style.background = "url(./images/filter-spritesheets/lot-filter-selected.png?v0.2.3e) " + -x + "px " + -y + "px";
+                button.style.background = "url(./images/filter-spritesheets/lot-filter-selected.png?v0.2.3f) " + -x + "px " + -y + "px";
                 button.classList.add("lot-filter-active");
                 writeFilterToTable("lot", index);
                 simDataHolder.lotFilter = index;
@@ -1745,7 +1745,7 @@ filterUtils = function() {
                 button.classList.remove("sim-filter-active");
                 var x = (count % 4) * 71;
                 var y = Math.floor(count / 4) * 71;
-                button.style.background = "url(./images/filter-spritesheets/sim-filter.png?v0.2.3e) " + -x + "px " + -y + "px";
+                button.style.background = "url(./images/filter-spritesheets/sim-filter.png?v0.2.3f) " + -x + "px " + -y + "px";
         
                 count++;
             }
@@ -1758,7 +1758,7 @@ filterUtils = function() {
     
                 var x = (index % 4) * 71;
                 var y = Math.floor(index / 4) * 71;
-                button.style.background = "url(./images/filter-spritesheets/sim-filter-selected.png?v0.2.3e) " + -x + "px " + -y + "px";
+                button.style.background = "url(./images/filter-spritesheets/sim-filter-selected.png?v0.2.3f) " + -x + "px " + -y + "px";
                 button.classList.add("sim-filter-active");
                 writeFilterToTable("sim", SIM_FILTER_KEYS[index]);
                 simDataHolder.simFilter = index;
@@ -1794,7 +1794,7 @@ searchUtils = function() {
         if (!simUtils.checkIfSimInLongCache(simName)) {
 
             // If sim not cached, fetch from API
-            simLong = await apiUtils.getAPIData("https://simnation.ddns.net:9000/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
+            simLong = await apiUtils.getAPIData("https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
 
             // Alert if sim doesn't exist
             if ("error" in simLong) {
@@ -1832,7 +1832,7 @@ searchUtils = function() {
         if (!simUtils.checkIfLotInLongCache(lotName)) {
 
             // If lot not cached, fetch from API
-            lotLong = await apiUtils.getAPIData("https://simnation.ddns.net:9000/userapi/city/1/lots/name/" + lotName.replace(" ", "%20"));
+            lotLong = await apiUtils.getAPIData("https://web-production-3227.up.railway.app/://simnation.ddns.net:9000/userapi/city/1/lots/name/" + lotName.replace(" ", "%20"));
 
             // Alert if lot doesn't exist
             if ("error" in lotLong) {
@@ -1949,14 +1949,14 @@ sidebarUtils = function() {
         let jobsActive = simUtils.returnJobsOpen();
 
         // Set job icon to inactive
-        SIDEBAR_JOB_FACTORY.style.background = "url(./images/buttons/jobs-active.png?v0.2.3e) 40px 0";
-        SIDEBAR_JOB_DINER.style.background = "url(./images/buttons/jobs-active.png?v0.2.3e) 40px 80px";
-        SIDEBAR_JOB_CLUB.style.background = "url(./images/buttons/jobs-active.png?v0.2.3e) 40px 40px";
+        SIDEBAR_JOB_FACTORY.style.background = "url(./images/buttons/jobs-active.png?v0.2.3f) 40px 0";
+        SIDEBAR_JOB_DINER.style.background = "url(./images/buttons/jobs-active.png?v0.2.3f) 40px 80px";
+        SIDEBAR_JOB_CLUB.style.background = "url(./images/buttons/jobs-active.png?v0.2.3f) 40px 40px";
 
         // Set active jobs to active icon
-        if (jobsActive.includes(1)) SIDEBAR_JOB_FACTORY.style.background = "url(./images/buttons/jobs-active.png?v0.2.3e) 0 0";
-        if (jobsActive.includes(2)) SIDEBAR_JOB_DINER.style.background = "url(./images/buttons/jobs-active.png?v0.2.3e) 0 80px";
-        if (jobsActive.includes(4)) SIDEBAR_JOB_CLUB.style.background = "url(./images/buttons/jobs-active.png?v0.2.3e) 0 40px";
+        if (jobsActive.includes(1)) SIDEBAR_JOB_FACTORY.style.background = "url(./images/buttons/jobs-active.png?v0.2.3f) 0 0";
+        if (jobsActive.includes(2)) SIDEBAR_JOB_DINER.style.background = "url(./images/buttons/jobs-active.png?v0.2.3f) 0 80px";
+        if (jobsActive.includes(4)) SIDEBAR_JOB_CLUB.style.background = "url(./images/buttons/jobs-active.png?v0.2.3f) 0 40px";
     }
 
     // Write about info in sidebar info panel 
@@ -2019,7 +2019,7 @@ apiUtils = function() {
     //#region API Fetching
     async function returnGitCommitJson() {
 
-        const apiLink = "https://api.github.com/repos/sam-chug/sim-finder/branches/master";
+        const apiLink = "https://web-production-3227.up.railway.app/http://api.github.com/repos/sam-chug/sim-finder/branches/master";
 
         let obj;
         const res = await fetch(apiLink);
@@ -2032,7 +2032,7 @@ apiUtils = function() {
 
     async function getDBLookupData() {
 
-        const apiLink = "https://raw.githubusercontent.com/Sam-Chug/sim-finder-data/main/staff-names";
+        const apiLink = "https://web-production-3227.up.railway.app/http://raw.githubusercontent.com/Sam-Chug/sim-finder-data/main/staff-names";
 
         let obj;
         const res = await fetch(apiLink);
@@ -2042,12 +2042,14 @@ apiUtils = function() {
         return obj;
     }
 
-    async function getAPIData (apiLink) {
+    async function getAPIData(apiLink) {
         
         // Clean link
         apiLink = cleanLink(apiLink);
 
         let obj;
+
+        console.log(apiLink);
         const res = await fetch(apiLink);
         obj = await res.json();
     
@@ -2100,7 +2102,7 @@ apiUtils = function() {
     // Id list to sim object (for bookmark id list)
     function buildLongSimLinkFromID(idList) {
 
-        let simIdString = "https://simnation.ddns.net:9000/userapi/avatars?ids=";
+        let simIdString = "https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/avatars?ids=";
         for (i = 0; i < idList.length; i++) {
         
             simIdString += idList[i] + ",";
@@ -2111,7 +2113,7 @@ apiUtils = function() {
 
     function buildLongSimLink(simList) {
 
-        let simIdString = "https://simnation.ddns.net:9000/userapi/avatars?ids=";
+        let simIdString = "https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/avatars?ids=";
         for (i = 0; i < simList.avatars.length; i++) {
     
             simIdString += simList.avatars[i].avatar_id + ",";
@@ -2123,7 +2125,7 @@ apiUtils = function() {
 
     function buildLongLotLink(lotList) {
 
-        let lotIDString = "https://simnation.ddns.net:9000/userapi/lots?ids=";
+        let lotIDString = "https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/lots?ids=";
         for (i = 0; i < lotList.lots.length; i++) {
     
             lotIDString += lotList.lots[i].lot_id + ",";
@@ -2136,7 +2138,7 @@ apiUtils = function() {
     // Builds api link from lot's roommates
     function buildRoommateLink(longLot) {
 
-        let roommateIDString = "https://simnation.ddns.net:9000/userapi/avatars?ids=";
+        let roommateIDString = "https://web-production-3227.up.railway.app/http://simnation.ddns.net:9000/userapi/avatars?ids=";
         for (i = 0; i < longLot.roommates.length; i++) {
 
             roommateIDString += longLot.roommates[i] + ",";

@@ -1,6 +1,6 @@
 Sim Finder Notes
 
-Patchnotes v0.2.3e:
+Patchnotes v0.2.3f:
     - Roommates data cached on first fetch instead of being fetched every time lot is viewed
     - Offline sim data now cached on first fetch instead of being fetched every time a single offline sim is revisited
     - Fixed townhall mayors not being listed
@@ -120,22 +120,22 @@ Shelved Ideas:
 
 API Link References:
     - All online sim data
-        - https://simnation.ddns.net:9000/userapi/avatars/online
+        - http://simnation.ddns.net:9000/userapi/avatars/online
 
     - All online lot data
-        - https://simnation.ddns.net:9000/userapi/city/1/lots/online
+        - http://simnation.ddns.net:9000/userapi/city/1/lots/online
 
     - Cached offline sim data (using avatar id)
-        - https://simnation.ddns.net:9000/userapi/avatars?ids=887,30363 etc.
+        - http://simnation.ddns.net:9000/userapi/avatars?ids=887,30363 etc.
 
     - Cached offline sim data (using sim name)
-        - https://simnation.ddns.net:9000/userapi/city/1/avatars/name/burglar%20cop
+        - http://simnation.ddns.net:9000/userapi/city/1/avatars/name/burglar%20cop
 
     - Return single cached offline lot data (using lot id)
-        - https://simnation.ddns.net:9000/userapi/lots/6852
+        - http://simnation.ddns.net:9000/userapi/lots/6852
 
     - Cached offline lot data (using lot name)
-        - https://simnation.ddns.net:9000/userapi/city/1/lots/name/M.O.M.I.%20Headquarters
+        - http://simnation.ddns.net:9000/userapi/city/1/lots/name/M.O.M.I.%20Headquarters
 
     - Lot thumbnail (using lot location)
-        - https://simnation.ddns.net:9000/userapi/city/1/13828398.png
+        - http://simnation.ddns.net:9000/userapi/city/1/13828398.png
