@@ -67,6 +67,9 @@ simUtils = function() {
     // Check if sim is in list of known staff sims
     function isSimStaffMember(simName) {
 
+        // I have no idea who the staff are in brazil, so this is disabled.
+        return false;
+
         let simLower = simName.toLowerCase();
         for (let i = 0; i < STAFF_NAMES.length; i++) {
 
