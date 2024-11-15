@@ -799,7 +799,7 @@ guiUtils = function() {
                 if (!simUtils.checkIfSimInLongCache(simName)) {
 
                     // If sim not in long cache, fetch from API and add to cache
-                    selectedSimLong = await apiUtils.getAPIData("https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
+                    selectedSimLong = await apiUtils.getAPIData("http://simnationserver.com:9000/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
                     simDataHolder.offlineLongSimList.push(selectedSimLong);
                 }
                 else {
@@ -1183,12 +1183,12 @@ guiUtils = function() {
         if (isTownHall) {
 
             // Get townhall object
-            townhallObj = await apiUtils.getAPIData(`https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/neighborhoods/${selectedLot.neighborhood_id}`);
+            townhallObj = await apiUtils.getAPIData(`http://simnationserver.com:9000/userapi/neighborhoods/${selectedLot.neighborhood_id}`);
 
             // Get mayor
             if (townhallObj.mayor_id != null) {
 
-                let avatarLong = await apiUtils.getAPIData(`https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/avatars?ids=${townhallObj.mayor_id}`);
+                let avatarLong = await apiUtils.getAPIData(`http://simnationserver.com:9000/userapi/avatars?ids=${townhallObj.mayor_id}`);
                 mayor = avatarLong.avatars[0];
             }
             else mayor = {
@@ -1797,7 +1797,7 @@ searchUtils = function() {
         if (!simUtils.checkIfSimInLongCache(simName)) {
 
             // If sim not cached, fetch from API
-            simLong = await apiUtils.getAPIData("https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
+            simLong = await apiUtils.getAPIData("http://simnationserver.com:9000/userapi/city/1/avatars/name/" + simName.replace(" ", "%20"));
 
             // Alert if sim doesn't exist
             if ("error" in simLong) {
@@ -1835,7 +1835,7 @@ searchUtils = function() {
         if (!simUtils.checkIfLotInLongCache(lotName)) {
 
             // If lot not cached, fetch from API
-            lotLong = await apiUtils.getAPIData("https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/city/1/lots/name/" + lotName.replace(" ", "%20"));
+            lotLong = await apiUtils.getAPIData("http://simnationserver.com:9000/userapi/city/1/lots/name/" + lotName.replace(" ", "%20"));
 
             // Alert if lot doesn't exist
             if ("error" in lotLong) {
@@ -2022,7 +2022,7 @@ apiUtils = function() {
     //#region API Fetching
     async function returnGitCommitJson() {
 
-        const apiLink = "https://web-production-3227.up.railway.app/http://api.github.com/repos/sam-chug/simnationfinder/branches/master";
+        const apiLink = "http://api.github.com/repos/sam-chug/simnationfinder/branches/master";
 
         let obj;
         const res = await fetch(apiLink);
@@ -2035,7 +2035,7 @@ apiUtils = function() {
 
     async function getDBLookupData() {
 
-        const apiLink = "https://web-production-3227.up.railway.app/http://raw.githubusercontent.com/Sam-Chug/sim-finder-data/main/staff-names";
+        const apiLink = "http://raw.githubusercontent.com/Sam-Chug/sim-finder-data/main/staff-names";
 
         let obj;
         const res = await fetch(apiLink);
@@ -2105,7 +2105,7 @@ apiUtils = function() {
     // Id list to sim object (for bookmark id list)
     function buildLongSimLinkFromID(idList) {
 
-        let simIdString = "https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/avatars?ids=";
+        let simIdString = "http://simnationserver.com:9000/userapi/avatars?ids=";
         for (i = 0; i < idList.length; i++) {
         
             simIdString += idList[i] + ",";
@@ -2116,7 +2116,7 @@ apiUtils = function() {
 
     function buildLongSimLink(simList) {
 
-        let simIdString = "https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/avatars?ids=";
+        let simIdString = "http://simnationserver.com:9000/userapi/avatars?ids=";
         for (i = 0; i < simList.avatars.length; i++) {
     
             simIdString += simList.avatars[i].avatar_id + ",";
@@ -2128,7 +2128,7 @@ apiUtils = function() {
 
     function buildLongLotLink(lotList) {
 
-        let lotIDString = "https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/lots?ids=";
+        let lotIDString = "http://simnationserver.com:9000/userapi/lots?ids=";
         for (i = 0; i < lotList.lots.length; i++) {
     
             lotIDString += lotList.lots[i].lot_id + ",";
@@ -2141,7 +2141,7 @@ apiUtils = function() {
     // Builds api link from lot's roommates
     function buildRoommateLink(longLot) {
 
-        let roommateIDString = "https://web-production-3227.up.railway.app/http://simnationserver.com:9000/userapi/avatars?ids=";
+        let roommateIDString = "http://simnationserver.com:9000/userapi/avatars?ids=";
         for (i = 0; i < longLot.roommates.length; i++) {
 
             roommateIDString += longLot.roommates[i] + ",";
